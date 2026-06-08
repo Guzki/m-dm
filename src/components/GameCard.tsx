@@ -9,10 +9,10 @@ export default function GameCard({ jeu }: { jeu: Jeu }) {
   return (
     <Link
       href={`/jeux/${jeu.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xs transition-all hover:-translate-y-0.5 hover:shadow-md"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-ink-700 bg-ink-850 transition-all hover:-translate-y-0.5 hover:border-neon-cyan/50 hover:shadow-[0_0_30px_-10px_var(--color-neon-cyan)]"
     >
       {/* Aperçu / vignette */}
-      <div className="relative aspect-video w-full overflow-hidden bg-gray-100">
+      <div className="relative aspect-video w-full overflow-hidden bg-ink-800">
         {jeu.thumbnail ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -21,25 +21,25 @@ export default function GameCard({ jeu }: { jeu: Jeu }) {
             className="h-full w-full object-cover"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">
+          <div className="flex h-full w-full items-center justify-center text-sm text-gray-500">
             Aucune image
           </div>
         )}
 
         {!jouable && (
           <span className="absolute right-3 top-3">
-            <Badge color="gray">Bientôt</Badge>
+            <Badge color="yellow">Bientôt</Badge>
           </span>
         )}
       </div>
 
       {/* Infos */}
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="text-lg font-semibold text-gray-900">{jeu.titre}</h3>
+        <h3 className="text-lg font-semibold text-gray-50">{jeu.titre}</h3>
         {jeu.eleve && (
           <p className="mt-0.5 text-sm text-gray-500">par {jeu.eleve}</p>
         )}
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-400">
           {jeu.description}
         </p>
 
@@ -54,7 +54,7 @@ export default function GameCard({ jeu }: { jeu: Jeu }) {
         )}
 
         {jouable && (
-          <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 group-hover:text-brand-800">
+          <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-neon-cyan">
             <PlayCircle className="h-5 w-5" /> Jouer
           </span>
         )}

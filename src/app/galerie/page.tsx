@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 export default function GaleriePage() {
   return (
     <main className="flex-1">
-      <section className="border-b border-gray-200 bg-gray-50">
+      <section className="border-b border-ink-700 bg-ink-900">
         <div className="mx-auto max-w-5xl px-6 py-14">
-          <Badge color="brand">{site.courseCode}</Badge>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+          <Badge color="cyan">{site.courseCode}</Badge>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-gray-50 sm:text-4xl">
             Les jeux des élèves
           </h1>
-          <p className="mt-3 max-w-2xl text-gray-600">
+          <p className="mt-3 max-w-2xl text-gray-400">
             {`Cliquez sur un jeu pour y jouer directement dans votre navigateur.`}
           </p>
         </div>

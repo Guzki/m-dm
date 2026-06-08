@@ -1,22 +1,21 @@
 @import "tailwindcss";
 
-/* Jetons de design Untitled UI ------------------------------------------- */
+/* Jetons de design — thème cyberpunk sombre ----------------------------- */
 @theme {
-  /* Couleur de marque (Untitled UI — violet) */
-  --color-brand-25: #fcfaff;
-  --color-brand-50: #f9f5ff;
-  --color-brand-100: #f4ebff;
-  --color-brand-200: #e9d7fe;
-  --color-brand-300: #d6bbfb;
-  --color-brand-400: #b692f6;
-  --color-brand-500: #9e77ed;
-  --color-brand-600: #7f56d9;
-  --color-brand-700: #6941c6;
-  --color-brand-800: #53389e;
-  --color-brand-900: #42307d;
+  /* Charbons (fonds) */
+  --color-ink-950: #0a0a0f;
+  --color-ink-900: #0f0f16;
+  --color-ink-850: #15151f;
+  --color-ink-800: #1c1c28;
+  --color-ink-700: #2a2a3a;
+  --color-ink-600: #3a3a4f;
 
-  /* Échelle de gris (Untitled UI) */
-  --color-gray-25: #fcfcfd;
+  /* Néons */
+  --color-neon-cyan: #22e0ff;
+  --color-neon-magenta: #ff3df0;
+  --color-neon-yellow: #ffe600;
+
+  /* Gris (texte sur fond sombre) */
   --color-gray-50: #f9fafb;
   --color-gray-100: #f2f4f7;
   --color-gray-200: #eaecf0;
@@ -24,17 +23,18 @@
   --color-gray-400: #98a2b3;
   --color-gray-500: #667085;
   --color-gray-600: #475467;
-  --color-gray-700: #344054;
-  --color-gray-800: #1d2939;
-  --color-gray-900: #101828;
 }
 
 @theme inline {
   --font-sans: var(--font-inter);
 }
 
+:root {
+  color-scheme: dark;
+}
+
 body {
-  background-color: #ffffff;
-  color: var(--color-gray-900);
+  background-color: var(--color-ink-950);
+  color: var(--color-gray-300);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }

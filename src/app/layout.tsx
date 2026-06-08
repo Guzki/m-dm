@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr-CA" className={`${inter.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-white text-gray-900 antialiased">
+      <body className="flex min-h-full flex-col bg-ink-950 text-gray-300 antialiased">
         <SiteHeader />
         {children}
         <SiteFooter />

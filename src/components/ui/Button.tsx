@@ -4,12 +4,13 @@ import type { ReactNode } from "react";
 type Variant = "primary" | "secondary";
 
 const base =
-  "inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-100 disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-neon-cyan/60 disabled:cursor-not-allowed disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-brand-600 text-white shadow-xs hover:bg-brand-700",
+  primary:
+    "bg-neon-cyan text-ink-950 shadow-[0_0_24px_-6px_var(--color-neon-cyan)] hover:brightness-110 hover:shadow-[0_0_32px_-4px_var(--color-neon-cyan)]",
   secondary:
-    "bg-white text-gray-700 shadow-xs ring-1 ring-inset ring-gray-300 hover:bg-gray-50",
+    "bg-transparent text-gray-100 ring-1 ring-inset ring-ink-600 hover:bg-white/5 hover:text-neon-cyan hover:ring-neon-cyan/60",
 };
 
 type ButtonProps = {

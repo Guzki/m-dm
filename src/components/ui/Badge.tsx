@@ -1,10 +1,12 @@
 import type { ReactNode } from "react";
 
-type Color = "brand" | "gray";
+type Color = "cyan" | "magenta" | "yellow" | "gray";
 
 const colors: Record<Color, string> = {
-  brand: "bg-brand-50 text-brand-700 ring-brand-200",
-  gray: "bg-gray-50 text-gray-700 ring-gray-200",
+  cyan: "bg-neon-cyan/10 text-neon-cyan ring-neon-cyan/30",
+  magenta: "bg-neon-magenta/10 text-neon-magenta ring-neon-magenta/30",
+  yellow: "bg-neon-yellow/10 text-neon-yellow ring-neon-yellow/30",
+  gray: "bg-white/5 text-gray-300 ring-white/10",
 };
 
 export function Badge({
