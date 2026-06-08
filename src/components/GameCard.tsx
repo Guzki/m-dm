@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PlayCircle } from "@untitledui/icons";
+import { Badge } from "@/components/ui/Badge";
 import type { Jeu } from "@/lib/games";
 
 export default function GameCard({ jeu }: { jeu: Jeu }) {
@@ -7,10 +9,10 @@ export default function GameCard({ jeu }: { jeu: Jeu }) {
   return (
     <Link
       href={`/jeux/${jeu.slug}`}
-      className="group block overflow-hidden rounded-lg border border-stone-200 bg-white transition-colors hover:border-stone-400"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xs transition-all hover:-translate-y-0.5 hover:shadow-md"
     >
       {/* Aperçu / vignette */}
-      <div className="relative aspect-video w-full overflow-hidden border-b border-stone-200 bg-stone-100">
+      <div className="relative aspect-video w-full overflow-hidden bg-gray-100">
         {jeu.thumbnail ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -19,41 +21,42 @@ export default function GameCard({ jeu }: { jeu: Jeu }) {
             className="h-full w-full object-cover"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-sm text-stone-400">
+          <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">
             Aucune image
           </div>
         )}
 
         {!jouable && (
-          <span className="absolute right-2 top-2 rounded bg-white/90 px-2 py-0.5 text-xs font-medium text-stone-600 ring-1 ring-stone-200">
-            Bientôt
+          <span className="absolute right-3 top-3">
+            <Badge color="gray">Bientôt</Badge>
           </span>
         )}
       </div>
 
       {/* Infos */}
-      <div className="p-4">
-        <h3 className="font-serif text-lg font-semibold text-stone-900 group-hover:underline">
-          {jeu.titre}
-        </h3>
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="text-lg font-semibold text-gray-900">{jeu.titre}</h3>
         {jeu.eleve && (
-          <p className="mt-0.5 text-sm text-stone-500">par {jeu.eleve}</p>
+          <p className="mt-0.5 text-sm text-gray-500">par {jeu.eleve}</p>
         )}
-        <p className="mt-2 text-sm leading-relaxed text-stone-600">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">
           {jeu.description}
         </p>
 
         {jeu.tags && jeu.tags.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-2">
             {jeu.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded bg-stone-100 px-2 py-0.5 text-xs text-stone-500"
-              >
+              <Badge key={tag} color="gray">
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
+        )}
+
+        {jouable && (
+          <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 group-hover:text-brand-800">
+            <PlayCircle className="h-5 w-5" /> Jouer
+          </span>
         )}
       </div>
     </Link>

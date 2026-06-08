@@ -8,6 +8,9 @@ export const site = {
   // Nom affiché de l'enseignant (en-tête, bas de page, titres).
   teacherName: "M. DM",
 
+  // Code du cours (en-tête, badges, titres).
+  courseCode: "DRC Programmation I",
+
   // Matière enseignée (utilisée dans les phrases, en minuscules).
   course: "conception de jeux vidéo",
 

@@ -36,26 +36,26 @@ export default async function JeuPage({
   const jouable = jeu.statut === "jouable";
 
   return (
-    <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-12">
+    <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-10">
       <Link
         href="/galerie"
-        className="text-sm text-blue-700 underline underline-offset-2 hover:text-blue-900"
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
       >
-        ← Tous les jeux
+        <span aria-hidden>←</span> Tous les jeux
       </Link>
 
       <header className="mt-6 mb-8">
-        <h1 className="font-serif text-3xl font-semibold text-stone-900">
+        <h1 className="text-3xl font-semibold tracking-tight text-gray-900">
           {jeu.titre}
         </h1>
-        {jeu.eleve && <p className="mt-1 text-stone-500">par {jeu.eleve}</p>}
-        <p className="mt-4 max-w-2xl leading-relaxed text-stone-700">
+        {jeu.eleve && <p className="mt-1 text-gray-500">par {jeu.eleve}</p>}
+        <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
           {jeu.description}
         </p>
       </header>
 
       {jouable ? (
-        <div className="overflow-hidden rounded-lg border border-stone-200 bg-black">
+        <div className="overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
           {/* Le jeu Godot exporté en HTML5 est chargé dans un iframe.
               Les fichiers se trouvent dans  public/exports/<slug>/  */}
           <iframe
@@ -67,13 +67,12 @@ export default async function JeuPage({
           />
         </div>
       ) : (
-        <div className="flex aspect-video w-full flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-stone-300 bg-stone-50 text-center">
-          <p className="text-lg font-medium text-stone-700">
-            Ce jeu sera bientôt disponible.
+        <div className="flex aspect-video w-full flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-gray-300 bg-gray-50 text-center">
+          <p className="text-lg font-medium text-gray-700">
+            {`Ce jeu sera bientôt disponible.`}
           </p>
-          <p className="max-w-sm text-sm text-stone-500">
-            L&apos;export n&apos;est pas encore en ligne. Reviens plus tard pour
-            y jouer.
+          <p className="max-w-sm text-sm text-gray-500">
+            {`L'export n'est pas encore en ligne. Reviens plus tard pour y jouer.`}
           </p>
         </div>
       )}

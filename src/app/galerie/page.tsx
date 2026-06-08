@@ -1,34 +1,42 @@
 import type { Metadata } from "next";
 import GameCard from "@/components/GameCard";
+import { Badge } from "@/components/ui/Badge";
 import { jeux } from "@/lib/games";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `Les jeux des élèves — ${site.teacherName}`,
-  description: `Jeux vidéo créés par les élèves du cours de ${site.course}.`,
+  description: `Jeux vidéo créés par les élèves du cours ${site.courseCode}.`,
 };
 
 export default function GaleriePage() {
   return (
-    <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-16">
-      <h1 className="font-serif text-3xl font-semibold text-stone-900">
-        Les jeux des élèves
-      </h1>
-      <p className="mt-3 text-stone-600">
-        Cliquez sur un jeu pour y jouer dans votre navigateur.
-      </p>
-
-      {jeux.length === 0 ? (
-        <p className="mt-10 text-stone-500">
-          Aucun jeu n&apos;est encore en ligne. Revenez bientôt&nbsp;!
-        </p>
-      ) : (
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {jeux.map((jeu) => (
-            <GameCard key={jeu.slug} jeu={jeu} />
-          ))}
+    <main className="flex-1">
+      <section className="border-b border-gray-200 bg-gray-50">
+        <div className="mx-auto max-w-5xl px-6 py-14">
+          <Badge color="brand">{site.courseCode}</Badge>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+            Les jeux des élèves
+          </h1>
+          <p className="mt-3 max-w-2xl text-gray-600">
+            {`Cliquez sur un jeu pour y jouer directement dans votre navigateur.`}
+          </p>
         </div>
-      )}
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-12">
+        {jeux.length === 0 ? (
+          <p className="text-gray-500">
+            {`Aucun jeu n'est encore en ligne. Revenez bientôt !`}
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {jeux.map((jeu) => (
+              <GameCard key={jeu.slug} jeu={jeu} />
+            ))}
+          </div>
+        )}
+      </section>
     </main>
   );
 }

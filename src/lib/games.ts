@@ -26,9 +26,18 @@ export const jeux: Jeu[] = [
     titre: "Kings and Pigs",
     // eleve: "Prénom N.", // ← ajouter le nom de l'élève une fois le consentement obtenu
     description:
-      "Un jeu de plateforme : aide le roi à traverser les niveaux, ramasse les pièces et évite les cochons.",
-    tags: ["Plateforme", "Aventure"],
+      "Le projet final : un jeu de plateforme original. Aide le roi à traverser les niveaux, ramasse les pièces et évite les cochons.",
+    tags: ["Projet final", "Plateforme"],
     thumbnail: "/exports/kings-and-pigs/index.png",
+    statut: "jouable",
+  },
+  {
+    slug: "flappy-clone",
+    titre: "Flappy Bird",
+    description:
+      "Recréation du grand classique de l'arcade, réalisée en classe pour apprendre la gravité, les collisions et le pointage.",
+    tags: ["Projet de classe", "Arcade"],
+    thumbnail: "/exports/flappy-clone/index.png",
     statut: "jouable",
   },
 ];
