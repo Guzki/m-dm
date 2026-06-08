@@ -1,0 +1,48 @@
+// Liste des jeux des élèves.
+//
+// Pour ajouter un jeu :
+//   1. Exporter le jeu Godot en HTML5 dans  public/exports/<slug>/
+//      (le dossier doit contenir index.html, le .wasm, le .pck, etc.)
+//   2. Déposer une image d'aperçu dans      public/exports/<slug>/thumbnail.png
+//   3. Ajouter une entrée ci-dessous avec le même « slug ».
+//
+// Mettre « statut » à "jouable" une fois l'export en place, sinon "bientot".
+
+export type StatutJeu = "jouable" | "bientot";
+
+export type Jeu = {
+  slug: string; // identifiant dans l'URL et nom du dossier dans public/jeux/
+  titre: string;
+  eleve: string; // nom de l'élève ou de l'équipe
+  description: string;
+  tags?: string[];
+  thumbnail?: string; // chemin de l'image d'aperçu
+  statut: StatutJeu;
+};
+
+export const jeux: Jeu[] = [
+  {
+    slug: "kings-and-pigs",
+    titre: "Kings and Pigs",
+    eleve: "À compléter", // ← mettre le nom de l'élève / de l'équipe
+    description:
+      "Un jeu de plateforme : aide le roi à traverser les niveaux, ramasse les pièces et évite les cochons.",
+    tags: ["Plateforme", "Aventure"],
+    thumbnail: "/exports/kings-and-pigs/index.png",
+    statut: "jouable",
+  },
+  {
+    slug: "aventure-foret",
+    titre: "L'aventure de la forêt",
+    eleve: "Équipe démo",
+    description:
+      "Un petit jeu de plateforme où il faut traverser une forêt mystérieuse.",
+    tags: ["Plateforme", "Aventure"],
+    // thumbnail: "/exports/aventure-foret/thumbnail.png", // décommenter une fois l'image ajoutée
+    statut: "bientot",
+  },
+];
+
+export function getJeu(slug: string): Jeu | undefined {
+  return jeux.find((jeu) => jeu.slug === slug);
+}
