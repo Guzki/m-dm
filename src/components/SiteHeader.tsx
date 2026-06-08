@@ -2,27 +2,27 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { site } from "@/lib/site";
 
 const liens = [
   { href: "/", label: "Accueil" },
-  { href: "/galerie", label: "Galerie de jeux" },
+  { href: "/galerie", label: "Les jeux" },
 ];
 
 export default function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+    <header className="border-b border-stone-200 bg-white">
+      <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-lg font-bold text-zinc-100 transition-colors hover:text-amber-400"
+          className="font-serif text-lg font-semibold text-stone-900"
         >
-          M. DM <span className="text-amber-400">·</span>{" "}
-          <span className="font-normal text-zinc-400">Conception de jeux</span>
+          {site.teacherName}
         </Link>
 
-        <ul className="flex items-center gap-1 text-sm">
+        <ul className="flex items-center gap-6 text-sm">
           {liens.map((lien) => {
             const actif =
               lien.href === "/"
@@ -32,11 +32,11 @@ export default function SiteHeader() {
               <li key={lien.href}>
                 <Link
                   href={lien.href}
-                  className={`rounded-lg px-3 py-2 transition-colors ${
+                  className={
                     actif
-                      ? "bg-zinc-800 text-amber-400"
-                      : "text-zinc-300 hover:bg-zinc-900 hover:text-zinc-100"
-                  }`}
+                      ? "font-medium text-stone-900 underline underline-offset-4"
+                      : "text-stone-600 transition-colors hover:text-stone-900"
+                  }
                 >
                   {lien.label}
                 </Link>

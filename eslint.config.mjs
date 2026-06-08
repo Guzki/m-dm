@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Jeux Godot exportés : code généré, à ne pas linter.
+    "public/**",
   ]),
 ]);
 

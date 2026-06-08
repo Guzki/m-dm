@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getJeu, jeux } from "@/lib/games";
+import { site } from "@/lib/site";
 
 // Prégénère une page pour chaque jeu au moment du build.
 export function generateStaticParams() {
@@ -15,9 +16,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const jeu = getJeu(slug);
-  if (!jeu) return { title: "Jeu introuvable — M. DM" };
+  if (!jeu) return { title: `Jeu introuvable — ${site.teacherName}` };
   return {
-    title: `${jeu.titre} — M. DM`,
+    title: `${jeu.titre} — ${site.teacherName}`,
     description: jeu.description,
   };
 }
@@ -35,45 +36,44 @@ export default async function JeuPage({
   const jouable = jeu.statut === "jouable";
 
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
+    <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-12">
       <Link
         href="/galerie"
-        className="inline-flex items-center gap-1 text-sm text-zinc-400 transition-colors hover:text-amber-400"
+        className="text-sm text-blue-700 underline underline-offset-2 hover:text-blue-900"
       >
-        ← Retour à la galerie
+        ← Tous les jeux
       </Link>
 
       <header className="mt-6 mb-8">
-        <h1 className="text-3xl font-bold text-zinc-100 sm:text-4xl">
+        <h1 className="font-serif text-3xl font-semibold text-stone-900">
           {jeu.titre}
         </h1>
-        <p className="mt-2 text-zinc-400">par {jeu.eleve}</p>
-        <p className="mt-4 max-w-2xl leading-relaxed text-zinc-300">
+        {jeu.eleve && <p className="mt-1 text-stone-500">par {jeu.eleve}</p>}
+        <p className="mt-4 max-w-2xl leading-relaxed text-stone-700">
           {jeu.description}
         </p>
       </header>
 
       {jouable ? (
-        <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-black">
+        <div className="overflow-hidden rounded-lg border border-stone-200 bg-black">
           {/* Le jeu Godot exporté en HTML5 est chargé dans un iframe.
               Les fichiers se trouvent dans  public/exports/<slug>/  */}
           <iframe
             src={`/exports/${jeu.slug}/index.html`}
             title={jeu.titre}
             className="aspect-video w-full"
-            allow="autoplay; fullscreen; gamepad; cross-origin-isolated"
+            allow="autoplay; fullscreen; gamepad"
             allowFullScreen
           />
         </div>
       ) : (
-        <div className="flex aspect-video w-full flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-zinc-700 bg-zinc-900 text-center">
-          <p className="text-5xl">🎮</p>
-          <p className="text-lg font-medium text-zinc-200">
-            Ce jeu sera bientôt disponible&nbsp;!
+        <div className="flex aspect-video w-full flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-stone-300 bg-stone-50 text-center">
+          <p className="text-lg font-medium text-stone-700">
+            Ce jeu sera bientôt disponible.
           </p>
-          <p className="max-w-sm text-sm text-zinc-400">
-            L&apos;export du jeu n&apos;est pas encore en ligne. Reviens plus
-            tard pour y jouer.
+          <p className="max-w-sm text-sm text-stone-500">
+            L&apos;export n&apos;est pas encore en ligne. Reviens plus tard pour
+            y jouer.
           </p>
         </div>
       )}
