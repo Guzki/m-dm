@@ -52,8 +52,7 @@ export const jeux: Jeu[] = [
   {
     slug: "echappee",
     titre: "Échappée",
-    eleve: "Jay F.", // ← ajuster ou retirer selon le consentement
-    description: "Un jeu original réalisé comme projet final du cours.",
+    description: "Ce jeu est impossible! Bonne chance de vous rendre jusqu'en haut",
     tags: ["Projet final"],
     thumbnail: "/exports/echappee/index.png",
     statut: "jouable",
@@ -61,8 +60,7 @@ export const jeux: Jeu[] = [
   {
     slug: "game-tyler",
     titre: "Le jeu de Tyler",
-    eleve: "Tyler",
-    description: "Un jeu de plateforme réalisé comme projet final du cours.",
+    description: "Attention fait au pas manger par les escargots!",
     tags: ["Projet final", "Plateforme"],
     thumbnail: "/exports/game-tyler/index.png",
     statut: "jouable",
@@ -70,10 +68,9 @@ export const jeux: Jeu[] = [
   {
     slug: "abyssal",
     titre: "Abyssal",
-    eleve: "Xavier",
     // ⚠️ Le dossier d'origine était marqué « incomplete and buggy ».
     // Vérifier que le jeu est jouable, sinon mettre statut: "bientot".
-    description: "Un jeu original réalisé comme projet final du cours.",
+    description: "Explorez le fond de l'océan dans votre propre sous-marin.",
     tags: ["Projet final"],
     thumbnail: "/exports/abyssal/index.png",
     statut: "jouable",
