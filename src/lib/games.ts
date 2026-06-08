@@ -40,6 +40,15 @@ export const jeux: Jeu[] = [
     thumbnail: "/exports/flappy-clone/index.png",
     statut: "jouable",
   },
+  {
+    slug: "jeux-regret-et-tristesse",
+    titre: "Regret et tristesse",
+    description:
+      " Le regret est la tristesse que j'ai ressentie durant ce cours.",
+    tags: ["Projet de classe", "Arcade"],
+    thumbnail: "/exports/jeux-regret-et-tristesse/index.png",
+    statut: "jouable",
+  },
 ];
 
 export function getJeu(slug: string): Jeu | undefined {
