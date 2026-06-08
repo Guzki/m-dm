@@ -49,6 +49,35 @@ export const jeux: Jeu[] = [
     thumbnail: "/exports/jeux-regret-et-tristesse/index.png",
     statut: "jouable",
   },
+  {
+    slug: "echappee",
+    titre: "Échappée",
+    eleve: "Jay F.", // ← ajuster ou retirer selon le consentement
+    description: "Un jeu original réalisé comme projet final du cours.",
+    tags: ["Projet final"],
+    thumbnail: "/exports/echappee/index.png",
+    statut: "jouable",
+  },
+  {
+    slug: "game-tyler",
+    titre: "Le jeu de Tyler",
+    eleve: "Tyler",
+    description: "Un jeu de plateforme réalisé comme projet final du cours.",
+    tags: ["Projet final", "Plateforme"],
+    thumbnail: "/exports/game-tyler/index.png",
+    statut: "jouable",
+  },
+  {
+    slug: "abyssal",
+    titre: "Abyssal",
+    eleve: "Xavier",
+    // ⚠️ Le dossier d'origine était marqué « incomplete and buggy ».
+    // Vérifier que le jeu est jouable, sinon mettre statut: "bientot".
+    description: "Un jeu original réalisé comme projet final du cours.",
+    tags: ["Projet final"],
+    thumbnail: "/exports/abyssal/index.png",
+    statut: "jouable",
+  },
 ];
 
 export function getJeu(slug: string): Jeu | undefined {
