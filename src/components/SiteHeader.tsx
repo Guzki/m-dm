@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GraduationHat01 } from "@untitledui/icons";
 import { site } from "@/lib/site";
 
 const liens = [
@@ -16,11 +15,11 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-ink-700 bg-ink-950">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3.5 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-neon-cyan to-neon-magenta text-ink-950">
-            <GraduationHat01 className="h-5 w-5" />
-          </span>
-          <span className="font-semibold text-gray-50">{site.teacherName}</span>
+        <Link
+          href="/"
+          className="font-semibold text-gray-50 transition-colors hover:text-neon-cyan"
+        >
+          {site.teacherName}
         </Link>
 
         <ul className="flex items-center gap-1 text-sm font-medium">
